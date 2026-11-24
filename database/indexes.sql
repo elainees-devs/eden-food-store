@@ -211,3 +211,19 @@ ON stock_movements(reference_type, reference_id);
 
 CREATE INDEX idx_stock_movements_branch_product_date
 ON stock_movements(branch_id, product_id, created_at DESC);
+
+-- ============================================================================
+-- STOCK TRANSFER ITEMS INDEXES
+-- ============================================================================
+
+CREATE INDEX idx_stock_transfer_items_transfer_id
+ON stock_transfer_items(stock_transfer_id);
+
+CREATE INDEX idx_stock_transfer_items_product_id
+ON stock_transfer_items(product_id);
+
+CREATE INDEX idx_stock_transfer_items_created_at
+ON stock_transfer_items(created_at DESC);
+
+CREATE INDEX idx_stock_transfer_items_transfer_product
+ON stock_transfer_items(stock_transfer_id, product_id);
