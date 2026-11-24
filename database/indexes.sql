@@ -35,3 +35,14 @@ WHERE is_active = TRUE;
 
 CREATE INDEX idx_users_email_lower
 ON users(LOWER(email));
+
+-- ============================================================================
+-- CATEGORIES INDEXES
+-- ============================================================================
+
+CREATE INDEX idx_categories_parent_id
+ON categories(parent_category_id);
+
+CREATE INDEX idx_categories_active
+ON categories(id)
+WHERE is_active = TRUE;
