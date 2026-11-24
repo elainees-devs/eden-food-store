@@ -131,3 +131,22 @@ ON purchase_items(purchase_id);
 -- Search purchase history by product
 CREATE INDEX idx_purchase_items_product_id
 ON purchase_items(product_id);
+
+-- ============================================================================
+-- SALES INDEXES
+-- ============================================================================
+
+CREATE INDEX idx_sales_branch_id
+ON sales(branch_id);
+
+CREATE INDEX idx_sales_cashier_id
+ON sales(cashier_id);
+
+CREATE INDEX idx_sales_sale_date
+ON sales(sale_date DESC);
+
+CREATE INDEX idx_sales_status
+ON sales(status);
+
+CREATE INDEX idx_sales_branch_date
+ON sales(branch_id, sale_date DESC);
