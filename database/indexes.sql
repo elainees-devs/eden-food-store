@@ -46,3 +46,26 @@ ON categories(parent_category_id);
 CREATE INDEX idx_categories_active
 ON categories(id)
 WHERE is_active = TRUE;
+
+-- ============================================================================
+-- SUPPLIERS INDEXES
+-- ============================================================================
+
+-- Search suppliers by name
+CREATE INDEX idx_suppliers_name
+ON suppliers(supplier_name);
+
+-- Search suppliers by phone
+CREATE INDEX idx_suppliers_phone
+ON suppliers(phone)
+WHERE phone IS NOT NULL;
+
+-- Case-insensitive email lookup
+CREATE INDEX idx_suppliers_email_lower
+ON suppliers(LOWER(email))
+WHERE email IS NOT NULL;
+
+-- Active suppliers
+CREATE INDEX idx_suppliers_active
+ON suppliers(id)
+WHERE is_active = TRUE;
