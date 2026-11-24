@@ -119,3 +119,15 @@ ON purchases(status);
 -- Filter purchases by payment status
 CREATE INDEX idx_purchases_payment_status
 ON purchases(payment_status);
+
+-- ============================================================================
+-- PURCHASE ITEMS INDEXES
+-- ============================================================================
+
+-- Retrieve all items belonging to a purchase
+CREATE INDEX idx_purchase_items_purchase_id
+ON purchase_items(purchase_id);
+
+-- Search purchase history by product
+CREATE INDEX idx_purchase_items_product_id
+ON purchase_items(product_id);
