@@ -69,3 +69,25 @@ WHERE email IS NOT NULL;
 CREATE INDEX idx_suppliers_active
 ON suppliers(id)
 WHERE is_active = TRUE;
+
+-- ============================================================================
+-- PRODUCTS INDEXES
+-- ============================================================================
+
+-- Search products by category
+CREATE INDEX idx_products_category_id
+ON products(category_id);
+
+-- Search products by name
+CREATE INDEX idx_products_name
+ON products(product_name);
+
+-- Search active products
+CREATE INDEX idx_products_active
+ON products(id)
+WHERE is_active = TRUE;
+
+-- Search products by barcode
+CREATE INDEX idx_products_barcode
+ON products(barcode)
+WHERE barcode IS NOT NULL;
